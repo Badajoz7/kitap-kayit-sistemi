@@ -1,5 +1,6 @@
 ﻿Imports System.IO
-
+Imports System.Data
+Imports System.Windows.Forms
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListBox1.Items.Clear()
@@ -18,6 +19,25 @@ Public Class Form1
         TextBox6.Clear()
     End Sub
 
+    Private Sub kaydet()
+        DataGridView1.Rows.Add()
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value = TextBox1.Text
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(1).Value = TextBox2.Text
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(2).Value = TextBox3.Text
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(3).Value = TextBox4.Text
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(4).Value = TextBox5.Text
+        DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(5).Value = TextBox6.Text
+        temizle()
+        DataGridView1.Refresh()
+    End Sub
+    Private Sub kontrol()
+        If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox4.Text = "" Or TextBox5.Text = "" Or TextBox6.Text = "" Then
+            MessageBox.Show("Lütfen tüm alanları doldurun.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            kaydet()
+        End If
+    End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Me.Text = "Bozkurt Halk Kütüphanesi 2026 " + Date.Now.ToString("yyyy-MM-dd HH:mm:ss")
     End Sub
@@ -31,9 +51,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox4.Text = "" Or TextBox5.Text = "" Or TextBox6.Text = "" Then
-            MessageBox.Show("Lütfen tüm alanları doldurun.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
+        kontrol()
     End Sub
 End Class

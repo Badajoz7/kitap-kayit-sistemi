@@ -25,6 +25,7 @@ Partial Class Form1
         components = New ComponentModel.Container()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
+        ProgressBar1 = New ProgressBar()
         Label8 = New Label()
         Label7 = New Label()
         Label6 = New Label()
@@ -41,12 +42,19 @@ Partial Class Form1
         TextBox2 = New TextBox()
         TextBox1 = New TextBox()
         TabPage2 = New TabPage()
+        DataGridView1 = New DataGridView()
+        satir1 = New DataGridViewTextBoxColumn()
+        satir2 = New DataGridViewTextBoxColumn()
+        satir3 = New DataGridViewTextBoxColumn()
+        satir4 = New DataGridViewTextBoxColumn()
+        satir5 = New DataGridViewTextBoxColumn()
+        satir6 = New DataGridViewTextBoxColumn()
         ListBox1 = New ListBox()
         Timer1 = New Timer(components)
-        ProgressBar1 = New ProgressBar()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TabControl1
@@ -83,8 +91,15 @@ Partial Class Form1
         TabPage1.Padding = New Padding(3)
         TabPage1.Size = New Size(1108, 549)
         TabPage1.TabIndex = 0
-        TabPage1.Text = "Kitap Kayıt Sorgulama"
+        TabPage1.Text = "Kitap Kayıt"
         TabPage1.UseVisualStyleBackColor = True
+        ' 
+        ' ProgressBar1
+        ' 
+        ProgressBar1.Location = New Point(305, 402)
+        ProgressBar1.Name = "ProgressBar1"
+        ProgressBar1.Size = New Size(455, 27)
+        ProgressBar1.TabIndex = 17
         ' 
         ' Label8
         ' 
@@ -100,7 +115,7 @@ Partial Class Form1
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold Or FontStyle.Italic)
-        Label7.Location = New Point(367, 76)
+        Label7.Location = New Point(387, 78)
         Label7.Name = "Label7"
         Label7.Size = New Size(324, 30)
         Label7.TabIndex = 14
@@ -221,6 +236,7 @@ Partial Class Form1
         ' 
         ' TabPage2
         ' 
+        TabPage2.Controls.Add(DataGridView1)
         TabPage2.Controls.Add(ListBox1)
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
@@ -229,6 +245,55 @@ Partial Class Form1
         TabPage2.TabIndex = 1
         TabPage2.Text = "Kitap Listesi"
         TabPage2.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {satir1, satir2, satir3, satir4, satir5, satir6})
+        DataGridView1.Dock = DockStyle.Fill
+        DataGridView1.Location = New Point(3, 3)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.Size = New Size(1102, 543)
+        DataGridView1.TabIndex = 1
+        ' 
+        ' satir1
+        ' 
+        satir1.HeaderText = "Kitap Adı"
+        satir1.MinimumWidth = 10
+        satir1.Name = "satir1"
+        satir1.ReadOnly = True
+        ' 
+        ' satir2
+        ' 
+        satir2.HeaderText = "Yazar"
+        satir2.Name = "satir2"
+        satir2.ReadOnly = True
+        ' 
+        ' satir3
+        ' 
+        satir3.HeaderText = "Yayınevi"
+        satir3.Name = "satir3"
+        satir3.ReadOnly = True
+        ' 
+        ' satir4
+        ' 
+        satir4.HeaderText = "Kitap Kategorisi"
+        satir4.Name = "satir4"
+        satir4.ReadOnly = True
+        ' 
+        ' satir5
+        ' 
+        satir5.HeaderText = "Sayfa Sayısı"
+        satir5.Name = "satir5"
+        satir5.ReadOnly = True
+        ' 
+        ' satir6
+        ' 
+        satir6.HeaderText = "Kitap NO"
+        satir6.Name = "satir6"
+        satir6.ReadOnly = True
         ' 
         ' ListBox1
         ' 
@@ -245,13 +310,6 @@ Partial Class Form1
         Timer1.Enabled = True
         Timer1.Interval = 1000
         ' 
-        ' ProgressBar1
-        ' 
-        ProgressBar1.Location = New Point(305, 402)
-        ProgressBar1.Name = "ProgressBar1"
-        ProgressBar1.Size = New Size(455, 27)
-        ProgressBar1.TabIndex = 17
-        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -264,6 +322,7 @@ Partial Class Form1
         TabPage1.ResumeLayout(False)
         TabPage1.PerformLayout()
         TabPage2.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -288,5 +347,12 @@ Partial Class Form1
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents satir1 As DataGridViewTextBoxColumn
+    Friend WithEvents satir2 As DataGridViewTextBoxColumn
+    Friend WithEvents satir3 As DataGridViewTextBoxColumn
+    Friend WithEvents satir4 As DataGridViewTextBoxColumn
+    Friend WithEvents satir5 As DataGridViewTextBoxColumn
+    Friend WithEvents satir6 As DataGridViewTextBoxColumn
 
 End Class
